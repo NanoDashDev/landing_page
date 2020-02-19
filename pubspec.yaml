@@ -1,0 +1,21 @@
+name: landing_page
+description: A simple landing page for my main website.
+url: https://www.nanodash.fr
+repository: https://www.github.com/NanoDashDev/landing_page
+
+version: 0.0.1+1
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  responsive_builder: ^0.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
