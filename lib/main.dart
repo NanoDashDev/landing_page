@@ -7,11 +7,26 @@ class NanoDashApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nanodash, votre partenaire digital',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey.shade200,
+        scaffoldBackgroundColor: Colors.blueGrey.shade200,
+        dialogBackgroundColor: Colors.blueGrey.shade200,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          shape: CircleBorder(
+            side: BorderSide(
+              color: Colors.black,
+              style: BorderStyle.solid,
+              width: 0.5,
+            ),
+          ),
+          backgroundColor: Colors.blueGrey,
+        ),
       ),
-      home: LandingPage(title: 'NanoDash'),
+      // initialRoute: LandingPage.routeName,
+      // routes: {LandingPage.routeName: (context) => LandingPage()},
+      home: LandingPage(),
     );
   }
 }
