@@ -19,7 +19,7 @@ class _LandingPageState extends State<LandingPage> {
         body: Stack(
           children: <Widget>[
             Center(
-              child: NeumorphicButton(
+              child: NeumorphicContainer(
                 height: MediaQuery.of(context).size.height / 1.42,
                 width: MediaQuery.of(context).size.width / 2.42,
                 bevel: 10.0,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Class forked from https://gist.github.com/av/014f3ae1b2842d5ac6e559781ef4e380
 /// Implement the neumorphic design trend on a container and some smooth animations to react on click events
-class NeumorphicButton extends StatefulWidget {
+class NeumorphicContainer extends StatefulWidget {
   final Widget child;
   final double bevel;
   final Offset blurOffset;
@@ -11,7 +11,7 @@ class NeumorphicButton extends StatefulWidget {
   final double height;
   final double width;
 
-  NeumorphicButton({
+  NeumorphicContainer({
     Key key,
     this.child,
     this.bevel = 10.0,
@@ -22,10 +22,10 @@ class NeumorphicButton extends StatefulWidget {
         super(key: key);
 
   @override
-  _NeumorphicButtonState createState() => _NeumorphicButtonState();
+  _NeumorphicContainerState createState() => _NeumorphicContainerState();
 }
 
-class _NeumorphicButtonState extends State<NeumorphicButton> {
+class _NeumorphicContainerState extends State<NeumorphicContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
