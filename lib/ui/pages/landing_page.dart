@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:landing_page/ui/app_ui.dart';
 import 'package:landing_page/ui/widgets/neumorphic_container.dart';
 
@@ -19,8 +20,8 @@ class _LandingPageState extends State<LandingPage> {
           children: <Widget>[
             Center(
               child: NeumorphicButton(
-                height: /* MediaQuery.of(context).size.height / 1.6 */ 550.0,
-                width: /* MediaQuery.of(context).size.width / 3 */ 650.0,
+                height: MediaQuery.of(context).size.height / 1.42,
+                width: MediaQuery.of(context).size.width / 2.42,
                 bevel: 10.0,
                 child: SingleChildScrollView(
                   child: Column(
@@ -28,17 +29,16 @@ class _LandingPageState extends State<LandingPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       SelectableText(
-                        AppUi.welcome['welcome'],
-                        style: Theme.of(context).textTheme.headline4.copyWith(
-                              color: Colors.blueGrey,
-                            ),
+                        AppUi.content['welcome'],
+                        style: Theme.of(context).textTheme.headline4,
                         textWidthBasis: TextWidthBasis.parent,
+                        textAlign: TextAlign.center,
                       ),
                       SizedBox(
                         height: 62.0,
                       ),
                     ]
-                      ..addAll(_buildText())
+                      ..add(_buildText())
                       ..addAll(AppUi.footer),
                   ),
                 ),
@@ -50,78 +50,46 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  List<Widget> _buildText() => [
-        SelectableText(
-          AppUi.welcome['lines'][0],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
+  Widget _buildText() {
+    List<InlineSpan> content = <InlineSpan>[];
+    int i = 0;
+    for (String line in AppUi.content['lines']) {
+      if (i == AppUi.content['lines'].length - 2) break;
+      line.contains(RegExp('[?.:@]')) || line.contains('.fr')
+          ? content.add(
+              TextSpan(
+                  text: line + '\r\n',
+                  style: line.contains('.fr')
+                      ? TextStyle(
+                          color: Colors.blueGrey,
+                          fontWeight: FontWeight.w900,
+                        )
+                      : null),
+            )
+          : content.add(TextSpan(text: line));
+      i++;
+    }
+    content.add(
+      TextSpan(
+        text: '\r\n' + AppUi.content['lines'][i],
+        style: TextStyle(
+          color: Colors.blueGrey,
+          fontWeight: FontWeight.w900,
+          fontStyle: FontStyle.italic,
         ),
-        SelectableText(
-          AppUi.welcome['lines'][1],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-        SizedBox(
-          height: 12.0,
-        ),
-        SelectableText(
-          AppUi.welcome['lines'][2],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-        SizedBox(
-          height: 12.0,
-        ),
-        SelectableText(
-          AppUi.welcome['lines'][3],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-        SelectableText(
-          AppUi.welcome['lines'][4],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-        SizedBox(
-          height: 12.0,
-        ),
-        SelectableText(
-          AppUi.welcome['lines'][5],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-        SizedBox(
-          height: 4.0,
-        ),
-        SelectableText(
-          AppUi.welcome['lines'][6],
-          style: TextStyle(
-            color: Colors.blueGrey,
-            fontWeight: FontWeight.w900,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-        SizedBox(
-          height: 12.0,
-        ),
-        SelectableText(
-          AppUi.welcome['lines'][7],
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
-        ),
-      ];
+      ),
+    );
+    content.add(TextSpan(
+      text: AppUi.content['lines'][i + 1],
+      style: TextStyle(color: Colors.white),
+    ));
+    return SelectableText.rich(
+      TextSpan(
+        style: TextStyle(color: Colors.white),
+        children: content,
+      ),
+      textAlign: TextAlign.center,
+      textWidthBasis: TextWidthBasis.parent,
+    );
+  }
 }

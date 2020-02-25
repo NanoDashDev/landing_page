@@ -1,52 +1,26 @@
 import 'package:flutter/material.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class AppUi {
-  static final Map<String, dynamic> welcome = {
+  static final Map<String, dynamic> content = {
     'welcome': 'Bienvenue sur NanoDash.fr !',
     'lines': [
-      'Vous avez un projet digital à mener',
-      'mais ne savez pas par où commencer ?',
-      'Besoin de visibilité sur le web ou d\'une application ?',
-      'Notre expert en développement multi-plateforme',
-      'vous garantira une large audience.',
-      'N\'hésitez plus et contactez-nous à l\'adresse :',
-      'contact@nanodash.fr',
-      '(Devis gratuits !)'
-    ],
-    'footer': [
+      'Vous avez un projet digital à mener\r\n',
+      'mais ne savez pas par où commencer ?\r\n',
+      'Besoin de visibilité sur le web ou d\'une application ?\r\n',
+      'Notre expert en développement multi-plateforme\r\n',
+      'vous garantira une large audience.\r\n',
+      'N\'hésitez plus et contactez-nous à l\'adresse :\r\n',
+      'contact@nanodash.fr\r\n',
       'NanoDash.fr',
       ', partenaire de votre vie digitale.',
-    ]
+    ],
   };
 
   static List<Widget> get footer => [
         SizedBox(
           height: 62.0,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SelectableText(
-              AppUi.welcome['footer'][0],
-              style: TextStyle(
-                color: Colors.blueGrey,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w900,
-              ),
-              textWidthBasis: TextWidthBasis.parent,
-            ),
-            SelectableText(
-              AppUi.welcome['footer'][1],
-              style: TextStyle(
-                color: Colors.white,
-              ),
-              textWidthBasis: TextWidthBasis.parent,
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 25.0,
         ),
         FloatingActionButton(
           onPressed: () => _launchUrl(
@@ -59,6 +33,31 @@ class AppUi {
           highlightElevation: 0.0,
           hoverElevation: 0.0,
           child: Icon(Icons.send),
+        ),
+        SizedBox(
+          height: 8.0,
+        ),
+        SelectableText.rich(
+          TextSpan(
+            text: '(Devis ',
+            children: <InlineSpan>[
+              TextSpan(
+                text: 'gratuits',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              TextSpan(
+                text: ' !)\r\n',
+              ),
+            ],
+          ),
+          style: TextStyle(
+            color: Colors.white,
+            fontStyle: FontStyle.italic,
+          ),
+          textWidthBasis: TextWidthBasis.parent,
         ),
       ];
 }
