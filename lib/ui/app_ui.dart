@@ -37,27 +37,29 @@ class AppUi {
         SizedBox(
           height: 8.0,
         ),
-        SelectableText.rich(
-          TextSpan(
-            text: '(Devis ',
-            children: <InlineSpan>[
-              TextSpan(
-                text: 'gratuits',
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  color: Colors.blueGrey,
+        Center(
+          child: SelectableText.rich(
+            TextSpan(
+              text: '(Devis ',
+              children: <InlineSpan>[
+                TextSpan(
+                  text: 'gratuits',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    color: Colors.blueGrey,
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: ' !)\r\n',
-              ),
-            ],
+                TextSpan(
+                  text: ' !)\r\n',
+                ),
+              ],
+            ),
+            style: TextStyle(
+              color: Colors.white,
+              fontStyle: FontStyle.italic,
+            ),
+            textWidthBasis: TextWidthBasis.parent,
           ),
-          style: TextStyle(
-            color: Colors.white,
-            fontStyle: FontStyle.italic,
-          ),
-          textWidthBasis: TextWidthBasis.parent,
         ),
       ];
 }

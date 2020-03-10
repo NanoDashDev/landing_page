@@ -16,7 +16,33 @@ class _LandingPageState extends State<LandingPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
-        body: Stack(
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          primary: true,
+          slivers: <Widget>[
+            SliverAppBar(
+              title: Text(
+                AppUi.content['welcome'],
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Colors.white70),
+                textWidthBasis: TextWidthBasis.parent,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(
+                    height: 150,
+                  ),
+                  _buildText(),
+                ]..addAll(AppUi.footer),
+              ),
+            ),
+          ],
+        ), /* Stack(
           children: <Widget>[
             Center(
               child: NeumorphicContainer(
@@ -45,7 +71,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
             ),
           ],
-        ),
+        ), */
       ),
     );
   }
