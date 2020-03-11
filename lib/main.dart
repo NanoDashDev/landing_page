@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page/services/locator.dart';
 import 'package:landing_page/ui/pages/landing_page.dart';
 
-void main() => runApp(NanoDashApp());
+void main() {
+  setupLocator();
+  runApp(NanoDashApp());
+}
 
 class NanoDashApp extends StatelessWidget {
   @override

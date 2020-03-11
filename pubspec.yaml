@@ -3,7 +3,7 @@ description: A simple landing page for my main website.
 url: https://www.nanodash.fr
 repository: https://www.github.com/NanoDashDev/landing_page
 
-version: 0.3.0+1
+version: 0.3.1+1
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   responsive_builder: ^0.1.5
   url_launcher: ^5.4.2
+  get_it: ^4.0.0
 
 dev_dependencies:
   flutter_test:

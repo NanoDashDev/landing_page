@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:url_launcher/url_launcher.dart';
+import 'package:landing_page/services/locator.dart';
 
 class AppUi {
   static final Map<String, dynamic> content = {
@@ -23,7 +22,7 @@ class AppUi {
           height: 62.0,
         ),
         FloatingActionButton(
-          onPressed: () => _launchUrl(
+          onPressed: () => locator.get<AppUtils>().launchUrl(
               'mailto:contact@nanodash.fr?subject=Demande de contact'),
           tooltip:
               'Reach out at contact@nanodash.fr\nHire me with a simple mail request describing your project !',
@@ -62,12 +61,4 @@ class AppUi {
           ),
         ),
       ];
-}
-
-void _launchUrl(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
 }
