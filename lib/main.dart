@@ -27,7 +27,15 @@ class NanoDashApp extends StatelessWidget {
             ),
             backgroundColor: Colors.blueGrey,
           ),
-          textTheme: TextTheme(headline4: TextStyle(color: Colors.blueGrey))),
+          textTheme: TextTheme(
+              bodyText1: TextStyle(
+                fontFamily: 'Amaranth',
+                fontSize: 14.0,
+                fontStyle: FontStyle.normal,
+                fontWeight: FontWeight.normal,
+                color: Colors.white,
+              ),
+              headline4: TextStyle(color: Colors.blueGrey))),
       // initialRoute: LandingPage.routeName,
       // routes: {LandingPage.routeName: (context) => LandingPage()},
       home: LandingPage(),

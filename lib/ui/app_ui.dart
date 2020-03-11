@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:landing_page/services/locator.dart';
-
 class AppUi {
   static final Map<String, dynamic> content = {
     'welcome': 'Bienvenue sur NanoDash.fr !',
@@ -16,49 +13,4 @@ class AppUi {
       ', partenaire de votre vie digitale.',
     ],
   };
-
-  static List<Widget> get footer => [
-        SizedBox(
-          height: 62.0,
-        ),
-        FloatingActionButton(
-          onPressed: () => locator.get<AppUtils>().launchUrl(
-              'mailto:contact@nanodash.fr?subject=Demande de contact'),
-          tooltip:
-              'Reach out at contact@nanodash.fr\nHire me with a simple mail request describing your project !',
-          elevation: 0.0,
-          disabledElevation: 0.0,
-          focusElevation: 0.0,
-          highlightElevation: 0.0,
-          hoverElevation: 0.0,
-          child: Icon(Icons.send),
-        ),
-        SizedBox(
-          height: 8.0,
-        ),
-        Center(
-          child: SelectableText.rich(
-            TextSpan(
-              text: '(Devis ',
-              children: <InlineSpan>[
-                TextSpan(
-                  text: 'gratuits',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    color: Colors.blueGrey,
-                  ),
-                ),
-                TextSpan(
-                  text: ' !)\r\n',
-                ),
-              ],
-            ),
-            style: TextStyle(
-              color: Colors.white,
-              fontStyle: FontStyle.italic,
-            ),
-            textWidthBasis: TextWidthBasis.parent,
-          ),
-        ),
-      ];
 }

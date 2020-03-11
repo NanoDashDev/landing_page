@@ -3,7 +3,7 @@ description: A simple landing page for my main website.
 url: https://www.nanodash.fr
 repository: https://www.github.com/NanoDashDev/landing_page
 
-version: 0.3.1+1
+version: 0.3.2+1
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -21,3 +21,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Amaranth
+      fonts:
+        - asset: assets/fonts/Amaranth-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Amaranth-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Amaranth-Italic.ttf
+          weight: 300
+        - asset: assets/fonts/Amaranth-BoldItalic.ttf
+          weight: 500
